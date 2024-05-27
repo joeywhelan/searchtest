@@ -1,0 +1,22 @@
+{
+    "name": "redb",
+    "type": "redis",
+    "memory_size":  10000000000,
+    "port": 12000,
+    "proxy_policy": "all-master-shards",
+    "sharding": true,
+    "shards_count": 2,
+    "sched_policy": "mnp",
+    "conns": 32,
+    "shards_placement": "sparse",
+    "shard_key_regex": [{"regex": ".*\\{(?<tag>.*)\\}.*"}, {"regex": "(?<tag>.*)"}],
+    "replication": false,
+    "module_list": [{
+        "module_name": "search",
+        "module_args": ""
+    },
+    {
+        "module_name":"ReJSON",
+        "module_args": ""
+    }]
+}
