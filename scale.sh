@@ -1,8 +1,9 @@
 #!/bin/bash
+export DB_ID=1
 export SEARCH_THREADS=6
-export SEARCH_UID=`curl -s -k -u "redis@redis.com:redis" https://localhost:9443/v1/bdbs/1 | jq '.module_list[] | select(.module_name=="search").module_id'` 
+export SEARCH_UID=`curl -s -k -u "redis@redis.com:redis" https://localhost:9443/v1/bdbs/$DB_ID | jq '.module_list[] | select(.module_name=="search").module_id'` 
 
-curl -s -k -u "redis@redis.com:redis" https://localhost:9443/v1/bdbs/1/modules/config -H "Content-Type:application/json" -d '{
+curl -s -k -u "redis@redis.com:redis" https://localhost:9443/v1/bdbs/$DB_ID/modules/config -H "Content-Type:application/json" -d '{
     "modules": [
         {
             "module_name": "search",
@@ -11,7 +12,7 @@ curl -s -k -u "redis@redis.com:redis" https://localhost:9443/v1/bdbs/1/modules/c
     ]
 }'
 
-curl -o /dev/null -s -k -u "redis@redis.com:redis" https://localhost:9443/v1/bdbs/1/modules/upgrade -H "Content-Type:application/json" -d '{
+curl -o /dev/null -s -k -u "redis@redis.com:redis" https://localhost:9443/v1/bdbs/$DB_ID/modules/upgrade -H "Content-Type:application/json" -d '{
     "modules": [
       {
         "module_name": "search",
