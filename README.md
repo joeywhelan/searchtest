@@ -1,4 +1,4 @@
-# Redis Search - TAG Query + Vertical Scaling Test
+# Redis Search - Query Term Order + Vertical Scaling Test
 
 ## Contents
 1.  [Summary](#summary)
