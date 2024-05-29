@@ -31,6 +31,6 @@ if __name__ == '__main__':
     print(f'Elapsed time: {elapsed} ms')
 
     client.ft('idx').alter_schema_add([TagField('$.color', as_name='color')])
-    elapsed = index_time(client)
     print('\n*** FT.ALTER - 1 field (TAG), 10M JSON docs ***')
+    elapsed = index_time(client)
     print(f'Elapsed time: {elapsed} ms')
