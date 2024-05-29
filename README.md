@@ -2,7 +2,7 @@
 
 ## Contents
 1.  [Summary](#summary)
-2.  [Approach](#approach)
+2.  [Architecture](#architecture)
 3.  [Features](#features)
 4.  [Prerequisites](#prerequisites)
 5.  [Usage](#usage)
@@ -12,8 +12,8 @@
 ## Summary <a name="summary"></a>
 This is a series of shell scripts for testing query speeds against varied queries and search threading.  This is not intended to be a performance benchmark.  This is test that can be run on a laptop to gain intuition on the effects of query term order and vertical scaling with Redis Search.
 
-## Approach <a name="approach"></a>
-RE cluster is built, loaded with 10M JSON documents and tested.
+## Architecture <a name="architecture"></a>
+![architecture](https://docs.google.com/drawings/d/e/2PACX-1vTa_V7I3Qqm8DYtmNtuI9nzTo4P0lIv934q4jqw8hbaGeBEehe_jolYPTohfZpL6GkS_A55LWPEpuXs/pub?w=960&h=720)
 
 ## Features <a name="features"></a>
 - 3-node Redis Enterprise cluster
