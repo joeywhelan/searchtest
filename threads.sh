@@ -1,0 +1,1 @@
+pid=$(pgrep -f redis-1.conf) && cat /proc/$pid/status | grep Threads | awk '{print $2}'

@@ -9,9 +9,10 @@ services:
     cap_add: 
       - sys_resource
     ports:
-      - "8443:8443"
-      - "12000:12000"
-      - "9443:9443"
+      - 8443:8443
+      - 12000:12000
+      - 9443:9443
+      - 8070
     networks:
       re_cluster:
         ipv4_address: 192.168.20.2
@@ -39,6 +40,20 @@ services:
     networks:
       re_cluster:
         ipv4_address: 192.168.20.4
+
+  prometheus-server:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - $PWD/prometheus.yml:/etc/prometheus/prometheus.yml
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      re_cluster:
+        ipv4_address: 192.168.20.5
+
 #Docker Networks
 networks:
   re_cluster:
