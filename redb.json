@@ -5,7 +5,7 @@
     "port": 12000,
     "proxy_policy": "all-master-shards",
     "sharding": true,
-    "shards_count": 2,
+    "shards_count": 3,
     "shards_placement": "sparse",
     "shard_key_regex": [{"regex": ".*\\{(?<tag>.*)\\}.*"}, {"regex": "(?<tag>.*)"}],
     "replication": false,

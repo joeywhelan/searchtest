@@ -21,11 +21,12 @@ echo -e "\n*** Create Index ***"
 redis-cli -p 12000 FT.CREATE idx ON JSON PREFIX 1 key: SCHEMA $.num AS num NUMERIC SORTABLE $.color AS color TAG SORTABLE UNF $.quote AS quote TEXT NOSTEM SORTABLE
 
 echo -e "\n*** Load DB ***"
-riot -h localhost -p 12000 faker-import --threads $RIOT_THREADS --count $NUM_DOCS \
-id="index" \
-num="number.randomNumber()" \
-color="color.name()" \
-quote="shakespeare.hamletQuote()" \
+riot faker -h localhost -p 12000 --threads $RIOT_THREADS --count $NUM_DOCS --var rnd="new java.util.Random()" \
+fid="bothify '#?#?#?#?#?'" \
+color="color.name" \
+key_name="Internet.uuidv4" \
+quote="Shakespeare.hamletQuote" \
+--proc num="#rnd.nextInt(3000)" \
 json.set \
 --keyspace key \
---keys id
+--key key_name
